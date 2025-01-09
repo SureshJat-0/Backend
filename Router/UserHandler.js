@@ -24,7 +24,7 @@ async function HandleSignupPost(req, res) {
 
 async function HandleLoginPost(req, res) {
     const body = req.body;
-    const user = await UserModel.findOne({email: body.email, password: body.password});
+    const user = await UserModel.findOne({ email: body.email, password: body.password });
     if (!user) return res.redirect('/login');
 
     const token = setUser(user);
