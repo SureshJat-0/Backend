@@ -12,7 +12,7 @@ const { BlogRouter } = require('./Controller/blogRoute');
 const { restrictToLogedinUserOnly, checkAuth } = require('./Middlewares/auth');
 app.use(cookieParser());
 
-pp.set('views', path.join(__dirname, 'Views')); // Adjust 'views' if it's in a different directory
+app.set('views', path.join(__dirname, 'Views')); // Adjust 'views' if it's in a different directory
 app.set('view engine', 'ejs');
 
 app.use('/', checkAuth, HomeRouter);
