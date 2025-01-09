@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+        }
+        .container {
+            text-align: center;
+        }
+
+        .allBlogs {
+            margin: 5px;
+            padding: 5px;
+        }
+
+        .blog {
+            border: 2px solid black;
+            text-align: left;
+            margin: 1rem;
+            padding: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>All Blogs</h1>
+        <div class="allBlogs">
+
+            <% if (allBlogs.length === 0) { %>
+                <p>No blogs to display</p>
+            <% } %>
+
+            <% allBlogs.forEach(blog=> { %>
+                <div class="blog">
+                    <h3><%= blog.blogAuthor %></h3>
+                    <h4>Blog Title : <%= blog.blogTitle %></h4>
+                    <a href="/blog/<%= blog.id %>">Click for detail</a>
+                    <!-- <p>Blog Decription : <%= blog.blogDescription %></p> -->
+                </div>
+                <% }) %>
+
+        </div>
+    </div>
+</body>
+
+</html>
