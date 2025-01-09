@@ -30,6 +30,19 @@ async function GetBlogInDetails(req, res) {
     res.render("blogDetails.ejs", { blog });
 }
 
+async function GetEditBlogPage(req, res) {
+    const id = req.params.id;
+    const blog = await BlogModel.findById(id);
+    res.render('editBlog.ejs', {blog: blog});
+}
+
+async function HandleEditPostBlog(req, res) {
+    const id = req.params.id;
+    const body = req.body;
+    await BlogModel.findByIdAndUpdate(id, {blogTitle: body.blogTitle, blogDescription: body.blogDescription});
+    res.redirect('/profile');
+
+}
 
 module.exports = {
     GetAllBlogs,
@@ -38,4 +51,6 @@ module.exports = {
     GetLoginPage,
     GetProfileBlogs,
     GetBlogInDetails,
+    GetEditBlogPage,
+    HandleEditPostBlog,
 }

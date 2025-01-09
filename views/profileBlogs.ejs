@@ -42,7 +42,8 @@
                 <div class="blog">
                     <h3><%= blog.blogAuthor %></h3>
                     <h4>Blog Title : <%= blog.blogTitle %></h4>
-                    <p>Blog Decription : <%= blog.blogDecription %></p>
+                    <p>Blog Decription : <%= blog.blogDescription %></p>
+                    <a href="/blog/edit/<%= blog.id %>">Edit Blog</a>
                 </div>
                 <% }) %>
 
