@@ -1,5 +1,4 @@
 const { BlogModel } = require('../Models/Blog');
-const path = require('path');
 
 async function GetAllBlogs(req, res) {
     if (!req.user) return res.redirect('/login');
@@ -8,15 +7,15 @@ async function GetAllBlogs(req, res) {
 }
 
 function GetPostBlogPage(req, res) {
-    res.render(path.join(__dirname, "BlogPost.ejs"));
+    res.render("BlogPost.ejs");
 }
 
 function GetSignupPage(req, res) {
-    res.render(path.join(__dirname, 'signup.ejs'));
+    res.render('signup.ejs');
 }
 
 function GetLoginPage(req, res) {
-    res.render(path.join(__dirname, 'login.ejs'));
+    res.render('login.ejs');
 }
 
 async function GetProfileBlogs(req, res) {
@@ -28,7 +27,7 @@ async function GetProfileBlogs(req, res) {
 async function GetBlogInDetails(req, res) {
     const id = req.params.id;
     const blog = await BlogModel.findById(id);
-    res.render(path.join(__dirname, "blogDetails.ejs"), { blog });
+    res.render("blogDetails.ejs", { blog });
 }
 
 
