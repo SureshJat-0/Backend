@@ -1,22 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Login - Blog-app</title>
+
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        form {
+            border: 2px solid black;
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        form input {
+            width: 90%;
+            height: 1.7rem;
+            padding: 0 0.5rem;
+            margin: 0.4rem;
+            font-size: 0.8rem;
+            outline: none;
+        }
+
+        form label {
+            font-size: 1.3rem;
+            margin: 0.4rem;
+        }
+
+        .subBtn {
+            font-size: 1.5rem;
+            border-radius: 5px;
+            outline: none;
+            border: 0;
+            cursor: pointer;
+            padding: 0.3rem 2rem;
+            margin: 0.3rem;
+        }
+
+        .homeBtn {
+            position: fixed;
+            top: 30px;
+            right: 10px;
+        }
+
+        .homeBtn a {
+            margin: 20px;
+            padding: 5px 20px;
+            font-size: 1.5rem;
+            font-weight: bolder;
+            border: 2px solid black;
+            border-radius: 1.5rem;
+            text-decoration: none;
+        }
+    </style>
+
 </head>
+
 <body>
-    <div class="container">
-        <form action="/user/login" method="post">
+    <div class="homeBtn"><a href="/">Home</a></div>
+    <h1>Login</h1>
+    <form action="/user/login" method="post">
 
-            <label>Email : </label>
-            <input type="text" placeholder="example@xyz.com" name="email"><br><br>
+        <label>Email : </label>
+        <input type="text" required="true" placeholder="example@xyz.com" name="email"><br><br>
 
-            <label>Password : </label>
-            <input type="text" placeholder="Password" name="password"><br><br>
+        <label>Password : </label>
+        <input type="text" required="true" placeholder="Password" name="password"><br><br>
 
-            <button type="submit">Login</button>
-        </form>
-    </div>
+        <button class="subBtn" type="submit">Login</button>
+        <p>Don't have an account ? <a href="/signup">SignUp</a></p>
+    </form>
+
 </body>
+
 </html>

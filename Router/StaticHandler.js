@@ -21,7 +21,7 @@ function GetLoginPage(req, res) {
 async function GetProfileBlogs(req, res) {
     if (!req.user) return res.redirect('/login');
     const userBlogs = await BlogModel.find({ blogAuthor: req.user.userName });
-    res.render("profileBlogs.ejs", { userBlogs: userBlogs });
+    res.render("profileBlogs.ejs", { userBlogs: userBlogs, userName: req.user.userName });
 }
 
 async function GetBlogInDetails(req, res) {

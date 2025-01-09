@@ -4,12 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Blogs</title>
+    <title>Profile : <%= userName %>
+    </title>
 
     <style>
         body {
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+            overflow-x: hidden;
         }
+
         .container {
             text-align: center;
         }
@@ -21,9 +24,53 @@
 
         .blog {
             border: 2px solid black;
+            border-radius: 1rem;
             text-align: left;
             margin: 1rem;
-            padding: 5px;
+            padding: 1rem;
+        }
+
+        .blog a {
+            text-decoration: none;
+        }
+
+        .blog a:hover {
+            text-decoration: underline;
+        }
+
+        .homeBtn {
+            position: fixed;
+            top: 30px;
+            right: 10px;
+        }
+
+        .backBtn {
+            text-align: right;
+        }
+
+        .backBtn a,
+        .homeBtn a {
+            margin: 20px;
+            padding: 5px 20px;
+            font-size: 1.5rem;
+            font-weight: bolder;
+            border: 2px solid black;
+            border-radius: 1.5rem;
+            text-decoration: none;
+        }
+
+        .postBlogBtn {
+            text-align: left;
+        }
+
+        .postBlogBtn a {
+            margin: 20px;
+            padding: 5px 20px;
+            font-size: 1.5rem;
+            font-weight: bolder;
+            border: 2px solid black;
+            border-radius: 1.5rem;
+            text-decoration: none;
         }
     </style>
 
@@ -31,23 +78,33 @@
 
 <body>
     <div class="container">
-        <h1>All Blogs</h1>
+        <div class="homeBtn"><a href="/">Home</a></div>
+        <h1>
+            <%= userName %>
+        </h1>
+        <div class="postBlogBtn"><a href="/blog">Post a Blog</a></div>
         <div class="allBlogs">
 
-            <% if (userBlogs.length === 0) { %>
+            <% if (userBlogs.length===0) { %>
                 <p>No blogs to display</p>
-            <% } %>
+                <% } %>
 
-            <% userBlogs.forEach(blog=> { %>
-                <div class="blog">
-                    <h3><%= blog.blogAuthor %></h3>
-                    <h4>Blog Title : <%= blog.blogTitle %></h4>
-                    <p>Blog Decription : <%= blog.blogDescription %></p>
-                    <a href="/blog/edit/<%= blog.id %>">Edit Blog</a>
-                </div>
-                <% }) %>
-
+                    <% userBlogs.forEach(blog=> { %>
+                        <div class="blog">
+                            <h3>
+                                <%= blog.blogAuthor %>
+                            </h3>
+                            <h4>Blog Title : <%= blog.blogTitle %>
+                            </h4>
+                            <p>Blog Decription : <%= blog.blogDescription %>
+                            </p>
+                            <a href="/blog/edit/<%= blog.id %>">Edit Blog</a>
+                        </div>
+                        <% }) %>
         </div>
+        <div class="backBtn"><a href="/">Back</a></div>
+        <p>Login to another account ? <a href="login">Login</a></p>
+
     </div>
 </body>
 

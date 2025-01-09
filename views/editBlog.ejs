@@ -1,19 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Blog</title>
+
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        .btns {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.3rem 0.8rem;
+            padding: 0.1rem;
+        }
+
+        .btns a {
+            margin: 5px;
+            padding: 5px;
+            font-size: 1.5rem;
+            font-weight: bolder;
+            text-decoration: none;
+        }
+
+        form {
+            border: 2px solid black;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        form input {
+            width: 90%;
+            height: 1.7rem;
+            padding: 0 0.5rem;
+            margin: 0.4rem;
+            font-size: 0.8rem;
+            outline: none;
+        }
+
+        form label {
+            font-size: 1.3rem;
+            margin: 0.4rem;
+        }
+
+        form textarea {
+            font-size: 0.9rem;
+            margin: 0.5rem;
+            padding: 0.4rem;
+            outline: none;
+        }
+
+        .subBtn {
+            font-size: 1.5rem;
+            border-radius: 5px;
+            outline: none;
+            border: 0;
+            cursor: pointer;
+            padding: 0.3rem 2rem;
+            margin: 0.3rem;
+        }
+
+        .homeBtn {
+            position: fixed;
+            top: 30px;
+            right: 10px;
+        }
+
+        .homeBtn a {
+            margin: 20px;
+            padding: 5px 20px;
+            font-size: 1.5rem;
+            font-weight: bolder;
+            border: 2px solid black;
+            border-radius: 1.5rem;
+            text-decoration: none;
+        }
+    </style>
+
 </head>
+
 <body>
+    <h1>Edit a Blog</h1>
+    <div class="homeBtn"><a href="/">Home</a></div>
     <form action="/blog/edit/<%= blog.id %>" method="post">
         <label>Blog Title</label><br>
         <input type="text" value="<%= blog.blogTitle %>" name="blogTitle" placeholder="Blog Title here..."><br><br>
 
         <label>Blog Description</label><br>
-        <textarea type="text" name="blogDescription" placeholder="Blog Description here..." rows="5" cols="50"><%= blog.blogDescription %></textarea><br>
+        <textarea type="text" name="blogDescription" placeholder="Blog Description here..." rows="5"
+            cols="50"><%= blog.blogDescription %></textarea><br>
 
-        <button type="submit">Post</button>
+        <div class="btns">
+            <button class="subBtn" type="submit">Edit</button>
+            <a href="/profile">Back</a>
+        </div>
     </form>
 </body>
+
 </html>
